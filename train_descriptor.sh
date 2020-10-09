@@ -1,0 +1,1 @@
+python train.py --data_dir DATA_DIR --train_type desc --pretrain_detector PRETRAIN_DETECTOR_MODEL --use_wandb

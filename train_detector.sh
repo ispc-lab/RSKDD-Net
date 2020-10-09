@@ -1,0 +1,1 @@
+python train.py --data_dir DATA_DIR --train_type det --use_wandb
