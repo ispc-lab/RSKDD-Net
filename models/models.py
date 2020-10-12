@@ -6,6 +6,15 @@ import numpy as np
 from .utils import random_dilation_encoding
 
 class Detector(nn.Module):
+    '''
+    Input:
+        x: [B, N, 3+C]
+    Output:
+        keypoints: [B,3,M] 
+        saliency_uncertainty: [B,M] 
+        random_cluster: [B,4+C,M,k] 
+        attentive_feature_map: [B, C_a, M,k]
+    '''
     def __init__(self, args):
         super(Detector, self).__init__()
         self.ninput = args.npoints
@@ -70,6 +79,13 @@ class Detector(nn.Module):
         return keypoints, saliency_uncertainty, random_cluster, attentive_feature_map
 
 class Descriptor(nn.Module):
+    '''
+    Input:
+        random_cluster: [B,4+C,M,k] 
+        attentive_feature_map: [B, C_a, M,k]
+    Output:
+        desc: [B,C_f,M]
+    '''
     def __init__(self, args):
         super(Descriptor, self).__init__()
 
@@ -110,6 +126,14 @@ class Descriptor(nn.Module):
         return desc
 
 class RSKDD(nn.Module):
+    '''
+    Input:
+        x: point cloud [B,N,3+C]
+    Output:
+        keypoints: [B,3,M]
+        sigmas: [B,M]
+        desc: [B,C_d,M]
+    '''
     def __init__(self, args):
         super(RSKDD, self).__init__()
 

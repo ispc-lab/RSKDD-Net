@@ -23,7 +23,6 @@ def index_points(points, idx):
     view_shape[1:] = [1]*(len(view_shape)-1)
     repeat_shape = list(idx.shape)
     repeat_shape[0] = 1
-    # print(view_shape, repeat_shape)
     batch_indices = torch.arange(B, dtype=torch.long).to(device).view(view_shape).repeat(repeat_shape) # [B, S]
     new_points = points[batch_indices, idx, :]
     return new_points
@@ -54,10 +53,10 @@ def random_dilation_encoding(x_sample, x, k, n):
     Input:
         x_sample: [B, nsample, C]
         x: [B, N, C]
-        k: number of neighbors for each layer
+        k: number of neighbors
         n: dilation ratio
     Output:
-        dilation_group: random dilation cluster [B, 4+D, nsample, k]
+        dilation_group: random dilation cluster [B, 4+C, nsample, k]
         dilation_xyz: xyz of random dilation cluster [B, 3, nsample, k]
     '''
     xyz_sample = x_sample[:,:,:3]
