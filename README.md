@@ -1,6 +1,10 @@
 # RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor
 
+## Introduction
+
 The repository contains the source code and pre-train model of our paper: `RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor`.
+
+<img src="./fig/rskdd_large.png"/>
 
 ## Environment
 
