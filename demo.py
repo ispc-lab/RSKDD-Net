@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import numpy as np
 import argparse
 import os
+import datetime
 
 from models.models import Detector, Descriptor, RSKDD
 from data.kittiloader import get_pointcloud
@@ -48,13 +49,16 @@ def demo(args):
         feature = feature.unsqueeze(0)
         feature = feature.cuda()
 
+        startT = datetime.datetime.now()
         kp, sigmas, desc = model(feature)
+        endT = datetime.datetime.now()
+        computation_time = (endT - startT).microseconds
 
         kp_sigmas = torch.cat((kp, sigmas.unsqueeze(1)),dim=1)
         kp_sigmas = kp_sigmas.squeeze().cpu().detach().numpy().transpose()
         desc = desc.squeeze().cpu().detach().numpy().transpose()
 
-        print(file_name, "processed")
+        print(file_name, "processed", ' computation time: {} ms'.format(computation_time))
 
         np.savetxt(kp_save_path, kp_sigmas, fmt='%.04f')
         np.savetxt(desc_save_path, desc, fmt='%.04f')

@@ -11,7 +11,7 @@ The repository contains the source code and pre-train model of our paper: `RSKDD
 Our code is developed and tested on the following environment:
 
 - Python 3.6
-- PyTorch 1.5.0
+- PyTorch 1.3.0 (also tested on 1.5.0)
 - Cuda 10.1
 - Numpy 1.18
 
