@@ -42,3 +42,17 @@ The network should be trained in two stages,
 - Firstly, train detector network using `sh train_detector.sh`, please change `DATA_DIR` to your own data.
 - Secondly, train descriptor network using `sh train_descriptor.sh`, please change `DATA_DIR` to your own data and `PRETRAIN_DETECTOR_MODEL` to the correct path (based on the first step).
 
+## Citation
+If you use the code in your research, please cite as
+
+Fan Lu, Guang Chen, Yinlong Liu, Zhongnan Qu, Alois Knoll. RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor. In
+*the 34th Conference on Neural Information Processing Systems* (NeurIPS 2020), Vancouver, Canada.
+
+    @InProceedings{Lu_2020_NeurIPS,
+        author = {Lu, Fan and Chen, Guang and Liu, Yinlong and Qu, Zhongnan and Knoll, Alois},
+        title = {RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor},
+        booktitle = {The 34th Conference on Neural Information Processing Systems (NeurIPS)},
+        month = {December},
+        year = {2020}
+    }
+
