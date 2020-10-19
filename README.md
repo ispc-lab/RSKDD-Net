@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The repository contains the source code and pre-train model of our paper published on NeurIPS 2020: `RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor`.
+The repository contains the source code and pre-trained models of our paper (published on NeurIPS 2020): `RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor`.
 
 <img src="./fig/rskdd_large.png"/>
 
