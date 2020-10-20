@@ -1,0 +1,1 @@
+python test.py --data_dir DATA_DIR --model_path ./pretrain/rskdd.pth --test_type desc --save_dir SAVE_DIR --test_seq TEST_SEQ
