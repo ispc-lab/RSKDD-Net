@@ -33,7 +33,21 @@ The keypoints and descriptors will be save in `demo/results/keypoints` and `demo
 
 ## Data preprocessing
 
-We utilize [PCL](https://pointclouds.org/) to pre-process the input point clouds. The point cloud should be first downsampled using [VoxelGrid](https://pcl.readthedocs.io/en/latest/voxel_grid.html) filter and then extract normal and curvature using [NormalEstimation](https://pointclouds.org/documentation/tutorials/normal_estimation.html).
+We utilize [PCL](https://pointclouds.org/) to pre-process the input point clouds. The point cloud should be first downsampled using [VoxelGrid](https://pcl.readthedocs.io/en/latest/voxel_grid.html) filter and then extract normal and curvature using [NormalEstimation](https://pointclouds.org/documentation/tutorials/normal_estimation.html). For kitti dataset, The pre-processed point cloud should be stored in `velodyne_txt` under each sequence, the data should be organized in the following format.
+
+```
+DATA_DIR
+├── poses
+│   ├── 00.txt
+│   ├── 01.txt
+├── sequences
+│   ├── 00
+│   │   │── velodyne
+│   │   │── velodyne_txt
+│   │   │── calib.txt
+│   │   │── times.txt
+│   ├── 01
+```
 
 ## Training
 
@@ -41,4 +55,8 @@ The network should be trained in two stages,
 
 - Firstly, train detector network using `sh train_detector.sh`, please change `DATA_DIR` to your own data.
 - Secondly, train descriptor network using `sh train_descriptor.sh`, please change `DATA_DIR` to your own data and `PRETRAIN_DETECTOR_MODEL` to the correct path (based on the first step).
+
+## Testing
+
+The network can be tested using the pre-trained model using  `sh test.sh`, please modify `DATA_DIR`, `SAVE_DIR` and `TEST_SEQ`.
 
