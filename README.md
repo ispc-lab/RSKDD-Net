@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The repository contains the source code and pre-train model of our paper: `RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor`.
+The repository contains the source code and pre-trained models of our paper (published on NeurIPS 2020): `RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor`.
 
 <img src="./fig/rskdd_large.png"/>
 
@@ -58,5 +58,20 @@ The network should be trained in two stages,
 
 ## Testing
 
+
 The network can be tested using the pre-trained model using  `sh test.sh`, please modify `DATA_DIR`, `SAVE_DIR` and `TEST_SEQ`.
+## Citation
+If you use the code in your research, please cite as
+
+Fan Lu, Guang Chen, Yinlong Liu, Zhongnan Qu, Alois Knoll. RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor. In
+*the 34th Conference on Neural Information Processing Systems* (NeurIPS 2020), Vancouver, Canada.
+
+    @InProceedings{Lu_2020_NeurIPS,
+        author = {Lu, Fan and Chen, Guang and Liu, Yinlong and Qu, Zhongnan and Knoll, Alois},
+        title = {RSKDD-Net: Random Sample-based Keypoint Detector and Descriptor},
+        booktitle = {The 34th Conference on Neural Information Processing Systems (NeurIPS)},
+        month = {December},
+        year = {2020}
+    }
+>>>>>>> f5706a5bf333c883a85fef8c550d59f1c6243fa3
 
