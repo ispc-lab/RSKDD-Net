@@ -59,7 +59,7 @@ The network should be trained in two stages,
 ## Testing
 
 
-The network can be tested using the pre-trained model using  `sh test.sh`, please modify `DATA_DIR`, `SAVE_DIR` and `TEST_SEQ`.
+The network can be tested using the pre-trained model using  `sh test.sh`, please change `DATA_DIR` to your own data and modify `SAVE_DIR` and `TEST_SEQ` for your own preference.
 ## Citation
 If you use the code in your research, please cite as
 
