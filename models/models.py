@@ -50,7 +50,7 @@ class Detector(nn.Module):
     def forward(self, x):
         '''
         Input:
-            x: [B,N,C]
+            x: [B,N,3+C]
         '''
         # random sample
         randIdx = torch.randperm(self.ninput)[:self.nsample]

@@ -12,7 +12,7 @@ import argparse
 from tqdm import tqdm
 import os
 
-from data.kittiloader import KittiLoader, KittiDataset
+from data.kittiloader import KittiDataset
 from models.models import Detector, Descriptor, RSKDD
 from models.losses import ChamferLoss, Point2PointLoss, Matching_loss
 
