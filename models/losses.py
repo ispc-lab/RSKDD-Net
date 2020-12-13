@@ -88,7 +88,7 @@ class Matching_loss(nn.Module):
         dst_desc = dst_desc.unsqueeze(2) # [B,C,1,M]
 
         desc_dists = torch.norm((src_desc - dst_desc), dim=1) # [B,M,M]
-        desc_dists_inv = 1.0/desc_dists
+        desc_dists_inv = 1.0/(desc_dists + 1e-3)
         desc_dists_inv = desc_dists_inv/self.t
 
         score_src = F.softmax(desc_dists_inv, dim=2)
