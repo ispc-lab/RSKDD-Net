@@ -35,13 +35,12 @@ def test_detector(args):
     model.eval()
 
     velodyne_dir = os.path.join(args.data_dir, 'sequences', args.test_seq, 'velodyne_txt')
-    velodyne_names = glob.glob(os.path.join(velodyne_dir, '*.txt'))
+    velodyne_names = os.listdir(velodyne_dir)
     velodyne_names = sorted(velodyne_names)
 
     for filename in velodyne_names:
         filepath = os.path.join(velodyne_dir, filename)
-        basename = filename.split('/')[-1]
-        kp_path = os.path.join(args.save_dir, "keypoints", basename)
+        kp_path = os.path.join(args.save_dir, "keypoints", filename)
         pc, sn = get_pointcloud(filepath, args.npoints)
         feature = torch.cat((pc, sn), dim=-1)
         feature = feature.unsqueeze(0)
@@ -65,7 +64,7 @@ def test_descriptor(args):
     model.eval()
 
     velodyne_dir = os.path.join(args.data_dir, 'sequences', args.test_seq, 'velodyne_txt')
-    velodyne_names = glob.glob(os.path.join(velodyne_dir, '*.txt'))
+    velodyne_names = os.listdir(velodyne_dir)
     velodyne_names = sorted(velodyne_names)
 
     kp_save_dir = os.path.join(args.save_dir, args.test_seq, "keypoints")
@@ -78,10 +77,9 @@ def test_descriptor(args):
 
     for filename in velodyne_names:
         filepath = os.path.join(velodyne_dir, filename)
-        basename = filename.split('/')[-1]
 
-        kp_path = os.path.join(kp_save_dir, "keypoints", basename)
-        desc_path = os.path.join(desc_save_dir, "desc", basename)
+        kp_path = os.path.join(kp_save_dir, "keypoints", filename)
+        desc_path = os.path.join(desc_save_dir, "desc", filename)
 
         pc, sn = get_pointcloud(filepath, args.npoints)
         feature = torch.cat((pc, sn), dim=-1)
